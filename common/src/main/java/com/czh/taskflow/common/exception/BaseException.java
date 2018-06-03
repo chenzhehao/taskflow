@@ -43,4 +43,34 @@ public class BaseException extends RuntimeException {
 		this.errMsg = errMsg;
 		this.errMsgForInner = errMsgForInner;
 	}
+
+	public String getErrCode() {
+		return errCode;
+	}
+
+	public void setErrCode(String errCode) {
+		this.errCode = errCode;
+	}
+
+	public String getErrMsg() {
+		return errMsg;
+	}
+
+	public void setErrMsg(String errMsg) {
+		this.errMsg = errMsg;
+	}
+
+	public String getErrMsgForInner() {
+		return errMsgForInner;
+	}
+
+	public void setErrMsgForInner(String errMsgForInner) {
+		this.errMsgForInner = errMsgForInner;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
 }

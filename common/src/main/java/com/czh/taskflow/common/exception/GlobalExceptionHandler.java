@@ -1,4 +1,4 @@
-package com.czh.taskflow.common;
+package com.czh.taskflow.common.exception;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.czh.taskflow.common.constants.Dict;
+import com.czh.taskflow.common.constants.ErrorEnum;
 
 /**
  * @Title: GlobalExceptionHandler.java
@@ -27,8 +28,14 @@ public class GlobalExceptionHandler {
 			final Exception ex) {
 		ex.printStackTrace();
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put(Dict.RET_CODE_KEY, Dict.SUCCESS_CODE);
-		map.put(Dict.RET_MESSAGE_KEY, ex.getMessage());
+		if (ex instanceof BaseException) {
+			BaseException e = (BaseException) ex;
+			map.put(Dict.RET_CODE_KEY, e.getErrCode());
+			map.put(Dict.RET_MESSAGE_KEY, e.getErrMsg());
+		} else {
+			map.put(Dict.RET_CODE_KEY, ErrorEnum.SYS_UNKNOWN.getErrCode());
+			map.put(Dict.RET_MESSAGE_KEY, ex.getCause().getMessage());
+		}
 		return map;
 	}
 }
