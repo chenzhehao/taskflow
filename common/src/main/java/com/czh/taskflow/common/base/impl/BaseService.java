@@ -54,8 +54,8 @@ public abstract class BaseService implements IService {
 	private Map<String, ?> after(CoreContext context) {
 		Map result = context.getResult();
 		Map<String, Object> responMap = new HashMap<String, Object>();
-		responMap.put(Dict.SUCCESS_CODE, ErrorEnum.SYS_SUCCESS.getErrCode());
-		responMap.put(Dict.SUCCESS_MESSAGE, ErrorEnum.SYS_SUCCESS.getErrMsg());
+		responMap.put(Dict.RET_CODE_KEY, ErrorEnum.SYS_SUCCESS.getErrCode());
+		responMap.put(Dict.RET_MESSAGE_KEY, ErrorEnum.SYS_SUCCESS.getErrMsg());
 		responMap.put(Dict.RET_DATA_KEY, result);
 		return responMap;
 	}
