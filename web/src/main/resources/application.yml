@@ -6,7 +6,8 @@ server:
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/taskflowdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
+#    url: jdbc:mysql://localhost:3306/taskflowdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://106.15.193.6:3306/taskflowdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: taskflow
     password: 123456abc
 mybatis:
