@@ -11,12 +11,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.9.RELEASE</version>
+		<version>1.5.12.RELEASE</version>
 	</parent>
 
 	<properties>
 		<rocketmq.version>4.2.0</rocketmq.version>
 		<project.version>0.0.1-SNAPSHOT</project.version>
+		<spring-cloud.version>Edgware.SR3</spring-cloud.version>
 	</properties>
 
 	<dependencyManagement>
@@ -25,6 +26,13 @@
 				<groupId>org.mybatis.spring.boot</groupId>
 				<artifactId>mybatis-spring-boot-starter</artifactId>
 				<version>1.3.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -41,6 +49,7 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
 		<!-- 如果你要选择Jetty，也非常简单，就是把pom中的tomcat依赖排除，并加入Jetty容器的依赖 -->
 		<!-- <dependency> -->
 		<!-- <groupId>org.springframework.boot</groupId> -->

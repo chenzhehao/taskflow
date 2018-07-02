@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,5 +40,12 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public Object login() {
 		return "success";
+	}
+
+	@Value("${config.value.test}")
+	public String value;
+	@RequestMapping(value = "/test")
+	public Object test(){
+		return value;
 	}
 }
